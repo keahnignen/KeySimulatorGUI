@@ -1,6 +1,6 @@
-﻿namespace KeySimulatorGUI
+﻿namespace KeySimulatorGUI.View
 {
-    partial class StartForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@
             this.btnOpen.TabIndex = 0;
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btn_Click);
             // 
             // btnNew
             // 
@@ -48,8 +49,9 @@
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(246, 57);
             this.btnNew.TabIndex = 1;
-            this.btnNew.Text = "New";
+            this.btnNew.Text = "NewForm";
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btn_Click);
             // 
             // btnAbout
             // 
@@ -61,7 +63,7 @@
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
-            // StartForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -71,7 +73,7 @@
             this.Controls.Add(this.btnOpen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "StartForm";
+            this.Name = "MainForm";
             this.Text = "KeySimulatorGUI";
             this.ResumeLayout(false);
 

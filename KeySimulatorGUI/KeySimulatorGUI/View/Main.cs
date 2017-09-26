@@ -1,22 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KeySimulatorGUI
+namespace KeySimulatorGUI.View
 {
-    public partial class StartForm : Form
+    public partial class MainForm : Form
     {
-        public StartForm()
+
+        public MainForm()
         {
             InitializeComponent();
+            NameOfButtoNew = btnNew.Name;
         }
 
+        public string NameOfButtoNew { get; private set; }
+
+        public Button ResultButton { get; private set; }
+        
         private void btnAbout_Click(object sender, EventArgs e)
         {
 
@@ -35,5 +34,13 @@ namespace KeySimulatorGUI
                 System.Diagnostics.Process.Start(gitHubLink);
             }
         }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            ResultButton = (Button) sender;
+            this.Close();
+        }
+
+
     }
 }

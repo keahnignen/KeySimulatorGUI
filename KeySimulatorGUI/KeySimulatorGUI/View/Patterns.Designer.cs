@@ -1,4 +1,4 @@
-﻿namespace KeySimulatorGUI
+﻿namespace KeySimulatorGUI.View
 {
     partial class Patterns
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dgvPattern = new System.Windows.Forms.DataGridView();
+            this.btnSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPattern)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,11 +41,22 @@
             this.dgvPattern.Size = new System.Drawing.Size(630, 437);
             this.dgvPattern.TabIndex = 0;
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(567, 455);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 1;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // Patterns
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 466);
+            this.ClientSize = new System.Drawing.Size(659, 502);
+            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.dgvPattern);
             this.Name = "Patterns";
             this.Text = "Patterns";
@@ -57,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPattern;
+        private System.Windows.Forms.Button btnSelect;
     }
 }

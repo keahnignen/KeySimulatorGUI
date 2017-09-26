@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KeySimulatorGUI
+namespace KeySimulatorGUI.View
 {
     public partial class Patterns : Form
     {
@@ -16,24 +10,48 @@ namespace KeySimulatorGUI
         public Patterns()
         {
             InitializeComponent();
+            ItsTimeToStop = false;
+        }
+
+        private void WaitUntilSomethingHappens()
+        {
+            while (!ItsTimeToStop)
+            {
+                Console.WriteLine("");
+            }
+        }
+
+        private bool ItsTimeToStop { get; set; }
+
+        public void StartShow()
+        {
+            this.Show();
+            WaitUntilSomethingHappens();
         }
 
         private DataGridView dgv;
 
-
         private void Patterns_Load(object sender, EventArgs e)
         {
             SetDataGridView(sender);
+            /*
             foreach (var VARIABLE in COLLECTION)
             {
                 
             }
+            */
         }
 
         private void SetDataGridView(object s)
         {
             Form form = (Form)s;
             dgv = form.Controls.OfType<DataGridView>().First();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            ItsTimeToStop = true;
+            this.Close();
         }
     }
 }
