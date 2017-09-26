@@ -39,7 +39,7 @@
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(246, 57);
             this.btnOpen.TabIndex = 0;
-            this.btnOpen.Text = "Open";
+            this.btnOpen.Text = "Open Pattern";
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btn_Click);
             // 
@@ -49,7 +49,7 @@
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(246, 57);
             this.btnNew.TabIndex = 1;
-            this.btnNew.Text = "NewForm";
+            this.btnNew.Text = "New Pattern";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btn_Click);
             // 

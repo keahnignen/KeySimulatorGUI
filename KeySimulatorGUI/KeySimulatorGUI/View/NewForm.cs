@@ -16,5 +16,10 @@ namespace KeySimulatorGUI.View
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
