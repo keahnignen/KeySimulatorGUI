@@ -23,9 +23,9 @@ namespace KeySimulatorGUI
             string gitHubLink = "https://github.com/keahnignen/KeySimulatorGUI";
 
             string messageContent =
-                "Theres nothing interssting." + Environment.NewLine +
-                "But, there is the Github link to this Project: " + Environment.NewLine +
-                gitHubLink + Environment.NewLine + Environment.NewLine +
+                "Theres nothing interesting." + "\n\n" +
+                "But, there is the Github link to this Project: " + "\n" +
+                gitHubLink + "\n\n\n" +
                 "Unfortunately, WindowsMessageBoxes are not clickable, wonne get redirected?";
 
             string messsageTitle = "About";
