@@ -9,16 +9,21 @@ namespace KeySimulatorGUI.View
         public MainForm()
         {
             InitializeComponent();
-            NameOfButtoNew = btnNew.Name;
+            //NameOfButtoNew = btnNew.Name;
         }
 
         public string NameOfButtoNew { get; private set; }
 
         public Button ResultButton { get; private set; }
-        
-        private void btnAbout_Click(object sender, EventArgs e)
-        {
 
+        private void btn_Click(object sender, EventArgs e)
+        {
+            ResultButton = (Button) sender;
+            this.Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             string gitHubLink = "https://github.com/keahnignen/KeySimulatorGUI";
 
             string messageContent =
@@ -35,12 +40,14 @@ namespace KeySimulatorGUI.View
             }
         }
 
-        private void btn_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ResultButton = (Button) sender;
             this.Close();
         }
 
-
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
