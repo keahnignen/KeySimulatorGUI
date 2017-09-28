@@ -30,7 +30,7 @@ namespace KeySimulatorGUI.View
                 "Theres nothing interesting." + "\n\n" +
                 "But, there is the Github link to this Project: " + "\n" +
                 gitHubLink + "\n\n\n" +
-                "Unfortunately, WindowsMessageBoxes are not clickable, wonne get redirected?";
+                "Unfortunately, WindowsMessageBoxes are not clickable, wanna get redirected?";
 
             string messsageTitle = "About";
 
@@ -48,6 +48,47 @@ namespace KeySimulatorGUI.View
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            RefreshDeleteOptions();
+            ShowAllPatterns();
+        }
+
+        private void ShowAllPatterns()
+        {
+            for (int i = 0; i < 11; i++)
+            {
+                lstPatternSelector.Items.Add("as" + i);
+            }
+        }
+
+        private void chkEnableDelete_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshDeleteOptions();
+        }
+
+        private void RefreshDeleteOptions()
+        {
+            btnDelete.Enabled = chkEnableDelete.Checked;
+            btnDeleteAll.Enabled = chkEnableDelete.Checked;
+            chkDisableDeleteConfimation.Enabled = chkEnableDelete.Checked;
+        }
+
+        private void lstPatternSelector_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ListBox lb = (ListBox) sender;
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            CreateNewPattern();
+        }
+
+        private void CreateNewPattern()
+        {
+            
         }
     }
 }

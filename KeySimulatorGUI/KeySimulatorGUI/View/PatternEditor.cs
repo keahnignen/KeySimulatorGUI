@@ -7,19 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KeySimulatorGUI.Controller;
 
 namespace KeySimulatorGUI.View
 {
-    public partial class NewForm : Form
+    public partial class PatternEditor : Form
     {
-        public NewForm()
+        public PatternEditor()
         {
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        public PatternEditor(PatternModel p)
         {
-
+            InitializeComponent();
         }
     }
 }

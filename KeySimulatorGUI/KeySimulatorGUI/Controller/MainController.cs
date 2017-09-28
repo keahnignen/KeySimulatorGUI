@@ -22,7 +22,7 @@ namespace KeySimulatorGUI.Controller
             /*
             Application.Run(
                 (mainForm.ResultButton.Name == mainForm.NameOfButtoNew)
-                ? (Form)new NewForm()
+                ? (Form)new PatternEditor()
                 : (Form)new Patterns()
                 );
                 */

@@ -30,23 +30,23 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.New = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lstPatternSelector = new System.Windows.Forms.ListBox();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnUse = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.grpPatternOption = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnDeleteAll = new System.Windows.Forms.Button();
+            this.chkDisableDeleteConfimation = new System.Windows.Forms.CheckBox();
+            this.chkEnableDelete = new System.Windows.Forms.CheckBox();
+            this.rtxPatternProperties = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpPatternOption.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(647, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(655, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,6 +70,20 @@
             this.listToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.listToolStripMenuItem.Text = "File";
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Text = "New (Ctrl+N)";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit (Alt+F4)";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
@@ -77,10 +91,10 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // listBox1
+            // lstPatternSelector
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lstPatternSelector.FormattingEnabled = true;
+            this.lstPatternSelector.Items.AddRange(new object[] {
             "First",
             "Second",
             "3",
@@ -91,153 +105,169 @@
             "7",
             "8",
             "9",
-            "0"});
-            this.listBox1.Location = new System.Drawing.Point(57, 42);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(237, 238);
-            this.listBox1.TabIndex = 1;
+            "0$21",
+            "4",
+            "3",
+            "5",
+            "436",
+            "",
+            "4568",
+            "",
+            "357",
+            "4",
+            "7",
+            "56",
+            "8",
+            "67",
+            "0",
+            "9^\'",
+            "0",
+            "98765432",
+            "1",
+            "3",
+            "21",
+            "4",
+            "23",
+            "534",
+            "6",
+            "54",
+            "7"});
+            this.lstPatternSelector.Location = new System.Drawing.Point(41, 39);
+            this.lstPatternSelector.Name = "lstPatternSelector";
+            this.lstPatternSelector.Size = new System.Drawing.Size(237, 238);
+            this.lstPatternSelector.TabIndex = 0;
+            this.lstPatternSelector.SelectedValueChanged += new System.EventHandler(this.lstPatternSelector_SelectedValueChanged);
             // 
-            // newToolStripMenuItem
+            // btnNew
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.btnNew.Location = new System.Drawing.Point(41, 283);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 2;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // exitToolStripMenuItem
+            // btnUse
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.btnUse.Location = new System.Drawing.Point(6, 259);
+            this.btnUse.Name = "btnUse";
+            this.btnUse.Size = new System.Drawing.Size(75, 23);
+            this.btnUse.TabIndex = 1;
+            this.btnUse.Text = "Use";
+            this.btnUse.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // btnTest
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 15);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(318, 238);
-            this.textBox1.TabIndex = 2;
+            this.btnTest.Location = new System.Drawing.Point(168, 259);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 3;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
             // 
-            // New
+            // btnEdit
             // 
-            this.New.Location = new System.Drawing.Point(57, 286);
-            this.New.Name = "New";
-            this.New.Size = new System.Drawing.Size(75, 23);
-            this.New.TabIndex = 3;
-            this.New.Text = "New";
-            this.New.UseVisualStyleBackColor = true;
+            this.btnEdit.Location = new System.Drawing.Point(87, 259);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // grpPatternOption
             // 
-            this.button2.Location = new System.Drawing.Point(6, 259);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Use";
-            this.button2.UseVisualStyleBackColor = true;
+            this.grpPatternOption.Controls.Add(this.rtxPatternProperties);
+            this.grpPatternOption.Controls.Add(this.btnDelete);
+            this.grpPatternOption.Controls.Add(this.btnEdit);
+            this.grpPatternOption.Controls.Add(this.btnUse);
+            this.grpPatternOption.Controls.Add(this.btnTest);
+            this.grpPatternOption.Location = new System.Drawing.Point(284, 24);
+            this.grpPatternOption.Name = "grpPatternOption";
+            this.grpPatternOption.Size = new System.Drawing.Size(334, 289);
+            this.grpPatternOption.TabIndex = 7;
+            this.grpPatternOption.TabStop = false;
+            this.grpPatternOption.Text = "Pattern Selection";
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.Location = new System.Drawing.Point(168, 259);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Test";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(87, 259);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Edit";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Location = new System.Drawing.Point(300, 27);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(334, 289);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(249, 259);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Delete";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(249, 259);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Location = new System.Drawing.Point(57, 330);
+            this.groupBox2.Controls.Add(this.btnDeleteAll);
+            this.groupBox2.Controls.Add(this.chkDisableDeleteConfimation);
+            this.groupBox2.Controls.Add(this.chkEnableDelete);
+            this.groupBox2.Location = new System.Drawing.Point(41, 327);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(577, 52);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Delete";
             // 
-            // checkBox1
+            // btnDeleteAll
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 20);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(144, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Enable to delete patterns";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.btnDeleteAll.Location = new System.Drawing.Point(492, 15);
+            this.btnDeleteAll.Name = "btnDeleteAll";
+            this.btnDeleteAll.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteAll.TabIndex = 2;
+            this.btnDeleteAll.Text = "Delete All";
+            this.btnDeleteAll.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chkDisableDeleteConfimation
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(158, 19);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(153, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Disable delete confirmation";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkDisableDeleteConfimation.AutoSize = true;
+            this.chkDisableDeleteConfimation.Location = new System.Drawing.Point(158, 19);
+            this.chkDisableDeleteConfimation.Name = "chkDisableDeleteConfimation";
+            this.chkDisableDeleteConfimation.Size = new System.Drawing.Size(153, 17);
+            this.chkDisableDeleteConfimation.TabIndex = 1;
+            this.chkDisableDeleteConfimation.Text = "Disable delete confirmation";
+            this.chkDisableDeleteConfimation.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // chkEnableDelete
             // 
-            this.button5.Location = new System.Drawing.Point(492, 15);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Delete All";
-            this.button5.UseVisualStyleBackColor = true;
+            this.chkEnableDelete.AutoSize = true;
+            this.chkEnableDelete.Location = new System.Drawing.Point(7, 20);
+            this.chkEnableDelete.Name = "chkEnableDelete";
+            this.chkEnableDelete.Size = new System.Drawing.Size(144, 17);
+            this.chkEnableDelete.TabIndex = 0;
+            this.chkEnableDelete.Text = "Enable to delete patterns";
+            this.chkEnableDelete.UseVisualStyleBackColor = true;
+            this.chkEnableDelete.CheckedChanged += new System.EventHandler(this.chkEnableDelete_CheckedChanged);
+            // 
+            // rtxPatternProperties
+            // 
+            this.rtxPatternProperties.Location = new System.Drawing.Point(6, 15);
+            this.rtxPatternProperties.Name = "rtxPatternProperties";
+            this.rtxPatternProperties.ReadOnly = true;
+            this.rtxPatternProperties.Size = new System.Drawing.Size(318, 238);
+            this.rtxPatternProperties.TabIndex = 5;
+            this.rtxPatternProperties.Text = "";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 438);
+            this.ClientSize = new System.Drawing.Size(655, 402);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.New);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.grpPatternOption);
+            this.Controls.Add(this.btnNew);
+            this.Controls.Add(this.lstPatternSelector);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "KeySimulatorGUI";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpPatternOption.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -251,20 +281,20 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstPatternSelector;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button New;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Button btnUse;
+        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.GroupBox grpPatternOption;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnDeleteAll;
+        private System.Windows.Forms.CheckBox chkDisableDeleteConfimation;
+        private System.Windows.Forms.CheckBox chkEnableDelete;
+        private System.Windows.Forms.RichTextBox rtxPatternProperties;
     }
 }
 
