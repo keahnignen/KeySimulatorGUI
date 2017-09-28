@@ -7,18 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KeySimulatorGUI.Controller;
 
 namespace KeySimulatorGUI.View
 {
-    public partial class PatternEditor : Form
+    public partial class Record : Form
     {
-        public PatternEditor()
-        {
-            InitializeComponent();
-        }
-
-        public PatternEditor(PatternModel p)
+        public Record()
         {
             InitializeComponent();
         }

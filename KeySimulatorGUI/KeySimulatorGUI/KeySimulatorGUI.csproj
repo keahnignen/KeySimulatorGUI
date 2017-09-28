@@ -60,22 +60,37 @@
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\PatternContext.cs" />
     <Compile Include="Models\PatternModel.cs" />
-    <Compile Include="View\PatternEditor.cs">
+    <Compile Include="View\OrderEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\PatternEditor.Designer.cs">
-      <DependentUpon>PatternEditor.cs</DependentUpon>
+    <Compile Include="View\OrderEditor.Designer.cs">
+      <DependentUpon>OrderEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Main.cs">
+    <Compile Include="View\MainEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="View\MainEditor.Designer.cs">
+      <DependentUpon>MainEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="View\Record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Record.Designer.cs">
+      <DependentUpon>Record.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\OrderEditor.resx">
+      <DependentUpon>OrderEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,8 +101,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\PatternEditor.resx">
-      <DependentUpon>PatternEditor.cs</DependentUpon>
+    <EmbeddedResource Include="View\MainEditor.resx">
+      <DependentUpon>MainEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Record.resx">
+      <DependentUpon>Record.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
