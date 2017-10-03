@@ -56,15 +56,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
+    <Compile Include="Models\iObject.cs" />
     <Compile Include="Models\KeyModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
-    <Compile Include="Models\PatternContext.cs" />
+    <Compile Include="Models\Context.cs" />
     <Compile Include="Models\PatternModel.cs" />
-    <Compile Include="View\OrderEditor.cs">
+    <Compile Include="View\KeyEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\OrderEditor.Designer.cs">
-      <DependentUpon>OrderEditor.cs</DependentUpon>
+    <Compile Include="View\KeyEdit.Designer.cs">
+      <DependentUpon>KeyEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainEditor.cs">
       <SubType>Form</SubType>
@@ -80,14 +81,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Namer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Namer.Designer.cs">
+      <DependentUpon>Namer.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Record.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Record.Designer.cs">
       <DependentUpon>Record.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\OrderEditor.resx">
-      <DependentUpon>OrderEditor.cs</DependentUpon>
+    <EmbeddedResource Include="View\KeyEdit.resx">
+      <DependentUpon>KeyEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainEditor.resx">
+      <DependentUpon>MainEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -101,8 +111,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\MainEditor.resx">
-      <DependentUpon>MainEditor.cs</DependentUpon>
+    <EmbeddedResource Include="View\Namer.resx">
+      <DependentUpon>Namer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Record.resx">
       <DependentUpon>Record.cs</DependentUpon>
@@ -119,7 +129,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />

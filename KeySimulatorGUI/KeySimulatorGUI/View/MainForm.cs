@@ -59,7 +59,7 @@ namespace KeySimulatorGUI.View
         private void ShowAllPatterns()
         {
        
-            using (var db = new PatternContext())
+            using (var db = new Context())
             {
                 StringBuilder sb = new StringBuilder();
                 foreach (var pattern in db.Patterns)
@@ -81,12 +81,6 @@ namespace KeySimulatorGUI.View
             btnDeletePatterns.Enabled = chkEnableSuperDelete.Checked;
             btnDeleteAll.Enabled = chkEnableSuperDelete.Checked;
         }
-        private void lstPatternSelector_SelectedValueChanged(object sender, EventArgs e)
-        {
-            ListBox lb = (ListBox) sender;
-            grpPatternOption.Enabled = true;
-            ShowPatternProperties(GetSelectedPattern());
-        }
         private void ShowPatternProperties(PatternModel pm)
         {
             StringBuilder sb = new StringBuilder();
@@ -102,7 +96,7 @@ namespace KeySimulatorGUI.View
         }
         private void CreateNewPattern()
         {
-            MainEditor me = new MainEditor();
+            MainEditor me = new MainEditor(true);
             me.Show();
         }
         private void btnDeletePattern_Click(object sender, EventArgs e)
@@ -111,7 +105,7 @@ namespace KeySimulatorGUI.View
                          "There is no undo! \n";
             if (MessageBox.Show(msg, "Delete Pattern", MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
             if (!YouAreSure()) return;
-            using (var db = new PatternContext())
+            using (var db = new Context())
             {
                 db.Database.Delete();
             }
@@ -154,5 +148,11 @@ namespace KeySimulatorGUI.View
             return ListOfPattern.ElementAt(lstPatternSelector.SelectedIndex + 1);
         }
 
+        private void lstPatternSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListBox lb = (ListBox)sender;
+            grpPatternOption.Enabled = true;
+            ShowPatternProperties(GetSelectedPattern());
+        }
     }
 }

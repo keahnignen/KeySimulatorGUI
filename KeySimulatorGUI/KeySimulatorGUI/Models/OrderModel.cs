@@ -7,7 +7,7 @@ using KeySimulatorGUI.Models;
 
 namespace KeySimulatorGUI.Controller
 {
-    public class OrderModel
+    public class OrderModel : iObject
     {
         public int Id { get; set; }
         public int EndDelay { get; set; }

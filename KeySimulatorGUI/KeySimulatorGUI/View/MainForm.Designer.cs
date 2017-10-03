@@ -74,14 +74,14 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.newToolStripMenuItem.Text = "New (Ctrl+N)";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.exitToolStripMenuItem.Text = "Exit (Alt+F4)";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             this.lstPatternSelector.Name = "lstPatternSelector";
             this.lstPatternSelector.Size = new System.Drawing.Size(387, 238);
             this.lstPatternSelector.TabIndex = 0;
-            this.lstPatternSelector.SelectedValueChanged += new System.EventHandler(this.lstPatternSelector_SelectedValueChanged);
+            this.lstPatternSelector.SelectedIndexChanged += new System.EventHandler(this.lstPatternSelector_SelectedIndexChanged);
             // 
             // btnNew
             // 

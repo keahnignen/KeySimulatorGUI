@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KeySimulatorGUI.Models;
 
 namespace KeySimulatorGUI.Controller
 {
@@ -12,7 +13,7 @@ namespace KeySimulatorGUI.Controller
         public int InitalDelay { get; set; }
         public int AdditonalBetweenDelay { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
         public List<OrderModel> Orders { get; set; }
+        public int PressDemension { get; set; }
     }
 }
