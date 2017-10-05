@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblKeyName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.btnEditSelectedItem = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.nudPressTime = new System.Windows.Forms.NumericUpDown();
+            this.btnChangeKey = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPressTime)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,37 +63,38 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Press-Time:";
             // 
-            // numericUpDown1
+            // nudPressTime
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(89, 88);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(125, 20);
-            this.numericUpDown1.TabIndex = 3;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudPressTime.Location = new System.Drawing.Point(89, 93);
+            this.nudPressTime.Name = "nudPressTime";
+            this.nudPressTime.Size = new System.Drawing.Size(125, 20);
+            this.nudPressTime.TabIndex = 3;
+            this.nudPressTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnEditSelectedItem
+            // btnChangeKey
             // 
-            this.btnEditSelectedItem.Location = new System.Drawing.Point(12, 38);
-            this.btnEditSelectedItem.Name = "btnEditSelectedItem";
-            this.btnEditSelectedItem.Size = new System.Drawing.Size(202, 33);
-            this.btnEditSelectedItem.TabIndex = 21;
-            this.btnEditSelectedItem.Text = "Change Key";
-            this.btnEditSelectedItem.UseVisualStyleBackColor = true;
+            this.btnChangeKey.Location = new System.Drawing.Point(12, 38);
+            this.btnChangeKey.Name = "btnChangeKey";
+            this.btnChangeKey.Size = new System.Drawing.Size(202, 33);
+            this.btnChangeKey.TabIndex = 21;
+            this.btnChangeKey.Text = "Change Key";
+            this.btnChangeKey.UseVisualStyleBackColor = true;
+            this.btnChangeKey.Click += new System.EventHandler(this.btnChangeKey_Click);
             // 
             // KeyEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(234, 133);
-            this.Controls.Add(this.btnEditSelectedItem);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.btnChangeKey);
+            this.Controls.Add(this.nudPressTime);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblKeyName);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "KeyEdit";
             this.Text = "KeyEdit";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPressTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,7 +105,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblKeyName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button btnEditSelectedItem;
+        private System.Windows.Forms.NumericUpDown nudPressTime;
+        private System.Windows.Forms.Button btnChangeKey;
     }
 }

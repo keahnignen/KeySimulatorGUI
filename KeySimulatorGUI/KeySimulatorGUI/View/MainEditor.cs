@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KeySimulatorGUI.Controller;
@@ -19,33 +20,22 @@ namespace KeySimulatorGUI.View
         private List<object> ListboxList;
         private readonly List<OrderModel> ComboboxList;
         private readonly bool _itsAboutPatern;
+        private bool _recordStarted = false;
         private readonly object _editObject;
 
         /// <summary>
         /// If u want to create something new
         /// </summary>
-        public MainEditor(bool createNewPattern) : this()
+        public MainEditor(bool createNewPattern) : this(createNewPattern, null)
         {
-            _itsAboutPatern = createNewPattern;
-            chkName.Enabled = true;
-        
-            if (createNewPattern)
-            {
-                _editObject = new OrderModel();
-            }
-            else
-            {
-                _editObject = new PatternModel();
-            }
         }
 
         /// <summary>
         /// Edit the parameter Pattern
         /// </summary>
         /// <param name="p">The Pattern iObjects</param>
-        public MainEditor(PatternModel p) : this()
+        public MainEditor(PatternModel p) : this(true, p) 
         {
-            _itsAboutPatern = true;
             _editObject = p;
         }
 
@@ -54,53 +44,85 @@ namespace KeySimulatorGUI.View
         /// </summary>
         /// <param name="p"></param>
         /// <param name="o"></param>
-        public MainEditor(OrderModel o) : this()
+        public MainEditor(OrderModel o) : this(false, o)
         {
-            _itsAboutPatern = false;
-            ShowName(o.Title, "Orders does not have Descriptions.");
-            _editObject = o;
         }
 
-        private MainEditor()
+        private MainEditor(bool itsAboutPattern, object obj)
         {
+            _itsAboutPatern = itsAboutPattern;
+
+            if (obj != null) _editObject = obj;
+            else
+            {
+                if (_itsAboutPatern)
+                {
+                    _editObject = new PatternModel();
+     
+                }
+                else
+                {
+                    _editObject = new OrderModel();
+                }
+            }
+
             InitializeComponent();
             grpPattern.Enabled = _itsAboutPatern;
             grpOrder.Enabled = !_itsAboutPatern;
-            ListboxList = GetListboxElements();
+            ListboxList = GetListboxElements<object>();
             PopulateListbox();
             if (!_itsAboutPatern) return;
+            btnTest.Enabled = true;
             ComboboxList = GetComboboxElements();
             PopulateCombobox();
         }
 
+        private const int WM_KEYDOWN = 0x0100;
+        private const int WM_SYSKEYDOWN = 0x104;
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (((msg.Msg == WM_KEYDOWN) || (msg.Msg == WM_SYSKEYDOWN)) && ParseKeyData(keyData)) return true; //True stands for key is handeld
+            return base.ProcessCmdKey(ref msg, keyData); //Returns the key if its not handeld
+        }
+
         private void PopulateListbox()
         {
-            lstLog.DataSource = ListboxList.Cast<iObject>().ToList();
-            lstLog.DisplayMember = nameof(iObject.Title);
-            lstLog.ValueMember = nameof(iObject.Id);
+            List<ListboxItem> ListboxElements = ListboxList.Cast<ListboxItem>().ToList();
+ 
+        
+            lstLog.DataSource = ListboxElements;
+            lstLog.DisplayMember = nameof(ListboxItem.Title);
+            lstLog.ValueMember = nameof(ListboxItem.Id);
+
+            string swag = "swaf";
+            string[] ListOfObjectNames = { "Obj1", "Obj2" };
+            Array.IndexOf(ListOfObjectNames, swag);
         }
 
         private void PopulateCombobox()
         {
-            cmbOrder.DataSource = ComboboxList.Cast<iObject>().ToList();
-            cmbOrder.DisplayMember = nameof(iObject.Title);
-            cmbOrder.ValueMember = nameof(iObject.Id);
+            cmbOrder.DataSource = ComboboxList.Cast<ListboxItem>().ToList();
+            cmbOrder.DisplayMember = nameof(ListboxItem.Title);
+            cmbOrder.ValueMember = nameof(ListboxItem.Id);
         }
 
-        private List<object> GetListboxElements()
+        private List<T> GetListboxElements<T>()
         {
             if (_itsAboutPatern)
             {
                 PatternModel p = (PatternModel) _editObject;
-                return p.Orders.Cast<object>().ToList();
+                if (p?.Orders != null && p.Orders.Any()) return p.Orders.Cast<T>().ToList();
             }
             else
             {
                 OrderModel o = (OrderModel)_editObject;
-                return o.Keys.Cast<object>().ToList();
+                if (o?.Keys !=  null && o.Keys.Any()) return o.Keys.Cast<T>().ToList();
             }
-        }
 
+            return new List<T>();
+        }
+        
         private List<OrderModel> GetComboboxElements()
         {
             using (var db = new Context())
@@ -148,22 +170,21 @@ namespace KeySimulatorGUI.View
 
         private void btnEditSelectedItem_Click(object sender, EventArgs e)
         {
+            Form form;
             if (_itsAboutPatern)
             {
-                MainEditor me = new MainEditor(ListboxList.Cast<OrderModel>().ElementAt(lstLog.SelectedIndex));
-                me.Show();
+                form = new MainEditor(GetListboxElement<OrderModel>());
             }
             else
             {
-                me = new MainEditor();
-                  
+                form = new KeyEdit(GetListboxElement<KeyModel>());
             }
-
+            form.Show();
         }
 
-        private Type GetTypeOfListboxElements()
+        private T GetListboxElement<T>()
         {
-            return _itsAboutPatern ? typeof(PatternModel) : typeof(OrderModel);
+            return ListboxList.Cast<T>().ElementAt(lstLog.SelectedIndex);
         }
 
         private void cmbOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,14 +197,50 @@ namespace KeySimulatorGUI.View
             MoveSelectedItem(true);
         }
 
-        private void MoveSelectedItem(bool b)
+        private void MoveSelectedItem(bool moveUpwards)
         {
             int index = lstLog.SelectedIndex;
             var element = ListboxList.ElementAt(lstLog.SelectedIndex);
-            index = b ? +1 : -1;
+            index = moveUpwards ? +1 : -1;
             ListboxList.Insert(index, element);
             ListboxList.Remove(element);
             PopulateListbox();
+        }
+
+        private void btnRecord_Click(object sender, EventArgs e)
+        {
+            _recordStarted = !_recordStarted;
+            btnRecord.Text = (_recordStarted) ? "Pause record" : "Start record";
+        }
+
+        private void btnMoveDown_Click(object sender, EventArgs e)
+        {
+            MoveSelectedItem(false);
+        }
+   
+        private bool ParseKeyData(Keys keyData)
+        {
+            if (!_recordStarted) return false;
+            KeyModel km = new KeyModel();
+            km.Keycode = keyData;
+            keys.Add(km);
+            UpdateLog();
+            return true;
+        }
+
+        private List<KeyModel> keys = new List<KeyModel>();
+
+
+
+        private void UpdateLog()
+        {
+            List<string> listOfKeys = new List<string>();
+            foreach (var key in keys)
+            {
+                listOfKeys.Add(key.Keycode.ToString());
+            }
+
+            lstLog.DataSource = listOfKeys;
         }
     }
 }

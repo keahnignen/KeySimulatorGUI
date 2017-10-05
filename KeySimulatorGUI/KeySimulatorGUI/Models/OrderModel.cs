@@ -7,11 +7,9 @@ using KeySimulatorGUI.Models;
 
 namespace KeySimulatorGUI.Controller
 {
-    public class OrderModel : iObject
+    public class OrderModel : ListboxItem
     {
-        public int Id { get; set; }
         public int EndDelay { get; set; }
-        public string Title { get; set; }
         public List<KeyModel> Keys { get; set; }
     }
 }

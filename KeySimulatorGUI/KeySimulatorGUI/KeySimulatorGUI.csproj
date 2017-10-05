@@ -34,11 +34,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0-beta1\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -56,11 +56,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
-    <Compile Include="Models\iObject.cs" />
+    <Compile Include="Migrations\201709290940325_InitialCreate.cs" />
+    <Compile Include="Migrations\201709290940325_InitialCreate.Designer.cs">
+      <DependentUpon>201709290940325_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710030957446_FirstMigration.cs" />
+    <Compile Include="Migrations\201710030957446_FirstMigration.Designer.cs">
+      <DependentUpon>201710030957446_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ListboxItem.cs" />
     <Compile Include="Models\KeyModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\PatternModel.cs" />
+    <Compile Include="View\UtilityWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityWindow.Designer.cs">
+      <DependentUpon>UtilityWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\KeyEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +108,12 @@
     <Compile Include="View\Record.Designer.cs">
       <DependentUpon>Record.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\201709290940325_InitialCreate.resx">
+      <DependentUpon>201709290940325_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710030957446_FirstMigration.resx">
+      <DependentUpon>201710030957446_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\KeyEdit.resx">
       <DependentUpon>KeyEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Record.resx">
       <DependentUpon>Record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityWindow.resx">
+      <DependentUpon>UtilityWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

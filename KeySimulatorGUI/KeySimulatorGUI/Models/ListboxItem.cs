@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace KeySimulatorGUI.Models
 {
-    interface iObject
+    public class ListboxItem
     {
-        int Id { get; set; }
-        string Title { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
     }
 }

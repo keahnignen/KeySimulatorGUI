@@ -54,10 +54,13 @@
             this.btnEditOrder = new System.Windows.Forms.Button();
             this.cmbOrder = new System.Windows.Forms.ComboBox();
             this.grpOrder = new System.Windows.Forms.GroupBox();
-            this.btnAddKey = new System.Windows.Forms.Button();
             this.chkName = new System.Windows.Forms.CheckBox();
             this.grpName = new System.Windows.Forms.GroupBox();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.nudInitalDelay = new System.Windows.Forms.NumericUpDown();
+            this.nudDelayBetween = new System.Windows.Forms.NumericUpDown();
+            this.lblDelayBetween = new System.Windows.Forms.Label();
+            this.lblInitalDelay = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelay)).BeginInit();
             this.grpAddPoint.SuspendLayout();
             this.grpOptionSelectedItem.SuspendLayout();
@@ -65,12 +68,14 @@
             this.grpSelectedOrderOptions.SuspendLayout();
             this.grpOrder.SuspendLayout();
             this.grpName.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudInitalDelay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDelayBetween)).BeginInit();
             this.SuspendLayout();
             // 
             // lstLog
             // 
             this.lstLog.FormattingEnabled = true;
-            this.lstLog.Location = new System.Drawing.Point(14, 375);
+            this.lstLog.Location = new System.Drawing.Point(14, 410);
             this.lstLog.Name = "lstLog";
             this.lstLog.Size = new System.Drawing.Size(256, 420);
             this.lstLog.TabIndex = 0;
@@ -78,16 +83,17 @@
             // 
             // btnRecord
             // 
-            this.btnRecord.Location = new System.Drawing.Point(137, 19);
+            this.btnRecord.Location = new System.Drawing.Point(10, 19);
             this.btnRecord.Name = "btnRecord";
             this.btnRecord.Size = new System.Drawing.Size(125, 33);
             this.btnRecord.TabIndex = 1;
-            this.btnRecord.Text = "Record";
+            this.btnRecord.Text = "Start Record";
             this.btnRecord.UseVisualStyleBackColor = true;
+            this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
             // btnNewOrder
             // 
-            this.btnNewOrder.Location = new System.Drawing.Point(6, 14);
+            this.btnNewOrder.Location = new System.Drawing.Point(10, 86);
             this.btnNewOrder.Name = "btnNewOrder";
             this.btnNewOrder.Size = new System.Drawing.Size(125, 33);
             this.btnNewOrder.TabIndex = 2;
@@ -97,7 +103,7 @@
             // 
             // btnAddDelay
             // 
-            this.btnAddDelay.Location = new System.Drawing.Point(14, 336);
+            this.btnAddDelay.Location = new System.Drawing.Point(10, 58);
             this.btnAddDelay.Name = "btnAddDelay";
             this.btnAddDelay.Size = new System.Drawing.Size(125, 33);
             this.btnAddDelay.TabIndex = 3;
@@ -106,7 +112,8 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(413, 720);
+            this.btnTest.Enabled = false;
+            this.btnTest.Location = new System.Drawing.Point(413, 755);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(125, 33);
             this.btnTest.TabIndex = 7;
@@ -115,7 +122,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(413, 759);
+            this.btnExit.Location = new System.Drawing.Point(413, 794);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(125, 33);
             this.btnExit.TabIndex = 8;
@@ -124,7 +131,7 @@
             // 
             // btnRemoveAll
             // 
-            this.btnRemoveAll.Location = new System.Drawing.Point(413, 288);
+            this.btnRemoveAll.Location = new System.Drawing.Point(413, 323);
             this.btnRemoveAll.Name = "btnRemoveAll";
             this.btnRemoveAll.Size = new System.Drawing.Size(125, 33);
             this.btnRemoveAll.TabIndex = 13;
@@ -148,6 +155,7 @@
             this.btnMoveDown.TabIndex = 15;
             this.btnMoveDown.Text = "Move ↓";
             this.btnMoveDown.UseVisualStyleBackColor = true;
+            this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
             // 
             // btnMoveUp
             // 
@@ -161,15 +169,15 @@
             // 
             // nudDelay
             // 
-            this.nudDelay.Location = new System.Drawing.Point(154, 344);
+            this.nudDelay.Location = new System.Drawing.Point(146, 66);
             this.nudDelay.Name = "nudDelay";
-            this.nudDelay.Size = new System.Drawing.Size(116, 20);
+            this.nudDelay.Size = new System.Drawing.Size(125, 20);
             this.nudDelay.TabIndex = 17;
             this.nudDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(282, 759);
+            this.btnSave.Location = new System.Drawing.Point(282, 794);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(125, 33);
             this.btnSave.TabIndex = 20;
@@ -214,7 +222,7 @@
             this.grpAddPoint.Controls.Add(this.rdoAfter);
             this.grpAddPoint.Controls.Add(this.rdoStart);
             this.grpAddPoint.Controls.Add(this.rdoBefore);
-            this.grpAddPoint.Location = new System.Drawing.Point(8, 104);
+            this.grpAddPoint.Location = new System.Drawing.Point(8, 70);
             this.grpAddPoint.Name = "grpAddPoint";
             this.grpAddPoint.Size = new System.Drawing.Size(539, 42);
             this.grpAddPoint.TabIndex = 24;
@@ -248,9 +256,9 @@
             this.grpOptionSelectedItem.Controls.Add(this.btnMoveUp);
             this.grpOptionSelectedItem.Controls.Add(this.btnMoveDown);
             this.grpOptionSelectedItem.Enabled = false;
-            this.grpOptionSelectedItem.Location = new System.Drawing.Point(276, 375);
+            this.grpOptionSelectedItem.Location = new System.Drawing.Point(276, 410);
             this.grpOptionSelectedItem.Name = "grpOptionSelectedItem";
-            this.grpOptionSelectedItem.Size = new System.Drawing.Size(270, 104);
+            this.grpOptionSelectedItem.Size = new System.Drawing.Size(270, 96);
             this.grpOptionSelectedItem.TabIndex = 26;
             this.grpOptionSelectedItem.TabStop = false;
             this.grpOptionSelectedItem.Text = "Options of selected Item";
@@ -267,12 +275,16 @@
             // 
             // grpPattern
             // 
+            this.grpPattern.Controls.Add(this.lblInitalDelay);
+            this.grpPattern.Controls.Add(this.lblDelayBetween);
+            this.grpPattern.Controls.Add(this.nudDelayBetween);
+            this.grpPattern.Controls.Add(this.nudInitalDelay);
             this.grpPattern.Controls.Add(this.grpSelectedOrderOptions);
             this.grpPattern.Controls.Add(this.cmbOrder);
             this.grpPattern.Controls.Add(this.btnNewOrder);
-            this.grpPattern.Location = new System.Drawing.Point(8, 152);
+            this.grpPattern.Location = new System.Drawing.Point(8, 118);
             this.grpPattern.Name = "grpPattern";
-            this.grpPattern.Size = new System.Drawing.Size(538, 111);
+            this.grpPattern.Size = new System.Drawing.Size(538, 163);
             this.grpPattern.TabIndex = 31;
             this.grpPattern.TabStop = false;
             this.grpPattern.Text = "Controls for edit pattern";
@@ -282,9 +294,9 @@
             this.grpSelectedOrderOptions.Controls.Add(this.btnAddOrder);
             this.grpSelectedOrderOptions.Controls.Add(this.btnEditOrder);
             this.grpSelectedOrderOptions.Enabled = false;
-            this.grpSelectedOrderOptions.Location = new System.Drawing.Point(137, 46);
+            this.grpSelectedOrderOptions.Location = new System.Drawing.Point(260, 19);
             this.grpSelectedOrderOptions.Name = "grpSelectedOrderOptions";
-            this.grpSelectedOrderOptions.Size = new System.Drawing.Size(267, 59);
+            this.grpSelectedOrderOptions.Size = new System.Drawing.Size(272, 61);
             this.grpSelectedOrderOptions.TabIndex = 35;
             this.grpSelectedOrderOptions.TabStop = false;
             this.grpSelectedOrderOptions.Text = "Options";
@@ -311,36 +323,28 @@
             // cmbOrder
             // 
             this.cmbOrder.FormattingEnabled = true;
-            this.cmbOrder.Location = new System.Drawing.Point(146, 19);
+            this.cmbOrder.Location = new System.Drawing.Point(10, 45);
             this.cmbOrder.Name = "cmbOrder";
-            this.cmbOrder.Size = new System.Drawing.Size(253, 21);
+            this.cmbOrder.Size = new System.Drawing.Size(244, 21);
             this.cmbOrder.TabIndex = 3;
             this.cmbOrder.SelectedIndexChanged += new System.EventHandler(this.cmbOrder_SelectedIndexChanged);
             // 
             // grpOrder
             // 
-            this.grpOrder.Controls.Add(this.btnAddKey);
             this.grpOrder.Controls.Add(this.btnRecord);
-            this.grpOrder.Location = new System.Drawing.Point(8, 269);
+            this.grpOrder.Controls.Add(this.btnAddDelay);
+            this.grpOrder.Controls.Add(this.nudDelay);
+            this.grpOrder.Location = new System.Drawing.Point(8, 304);
             this.grpOrder.Name = "grpOrder";
-            this.grpOrder.Size = new System.Drawing.Size(272, 61);
+            this.grpOrder.Size = new System.Drawing.Size(277, 100);
             this.grpOrder.TabIndex = 32;
             this.grpOrder.TabStop = false;
             this.grpOrder.Text = "Controls for edit order";
             // 
-            // btnAddKey
-            // 
-            this.btnAddKey.Location = new System.Drawing.Point(6, 19);
-            this.btnAddKey.Name = "btnAddKey";
-            this.btnAddKey.Size = new System.Drawing.Size(125, 33);
-            this.btnAddKey.TabIndex = 2;
-            this.btnAddKey.Text = "Add Key";
-            this.btnAddKey.UseVisualStyleBackColor = true;
-            // 
             // chkName
             // 
             this.chkName.AutoSize = true;
-            this.chkName.Location = new System.Drawing.Point(437, 81);
+            this.chkName.Location = new System.Drawing.Point(442, 28);
             this.chkName.Name = "chkName";
             this.chkName.Size = new System.Drawing.Size(109, 17);
             this.chkName.TabIndex = 33;
@@ -354,7 +358,7 @@
             this.grpName.Controls.Add(this.lblTitle);
             this.grpName.Location = new System.Drawing.Point(8, 12);
             this.grpName.Name = "grpName";
-            this.grpName.Size = new System.Drawing.Size(539, 42);
+            this.grpName.Size = new System.Drawing.Size(428, 42);
             this.grpName.TabIndex = 34;
             this.grpName.TabStop = false;
             this.grpName.Text = "Name";
@@ -366,11 +370,45 @@
             this.txtName.Size = new System.Drawing.Size(125, 20);
             this.txtName.TabIndex = 30;
             // 
+            // nudInitalDelay
+            // 
+            this.nudInitalDelay.Location = new System.Drawing.Point(397, 91);
+            this.nudInitalDelay.Name = "nudInitalDelay";
+            this.nudInitalDelay.Size = new System.Drawing.Size(125, 20);
+            this.nudInitalDelay.TabIndex = 36;
+            this.nudInitalDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // nudDelayBetween
+            // 
+            this.nudDelayBetween.Location = new System.Drawing.Point(397, 117);
+            this.nudDelayBetween.Name = "nudDelayBetween";
+            this.nudDelayBetween.Size = new System.Drawing.Size(125, 20);
+            this.nudDelayBetween.TabIndex = 37;
+            this.nudDelayBetween.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblDelayBetween
+            // 
+            this.lblDelayBetween.AutoSize = true;
+            this.lblDelayBetween.Location = new System.Drawing.Point(271, 119);
+            this.lblDelayBetween.Name = "lblDelayBetween";
+            this.lblDelayBetween.Size = new System.Drawing.Size(78, 13);
+            this.lblDelayBetween.TabIndex = 38;
+            this.lblDelayBetween.Text = "Delay between";
+            // 
+            // lblInitalDelay
+            // 
+            this.lblInitalDelay.AutoSize = true;
+            this.lblInitalDelay.Location = new System.Drawing.Point(271, 93);
+            this.lblInitalDelay.Name = "lblInitalDelay";
+            this.lblInitalDelay.Size = new System.Drawing.Size(59, 13);
+            this.lblInitalDelay.TabIndex = 39;
+            this.lblInitalDelay.Text = "Inital Delay";
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 812);
+            this.ClientSize = new System.Drawing.Size(559, 847);
             this.Controls.Add(this.grpName);
             this.Controls.Add(this.chkName);
             this.Controls.Add(this.grpOrder);
@@ -379,10 +417,8 @@
             this.Controls.Add(this.btnRemoveAll);
             this.Controls.Add(this.grpAddPoint);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.nudDelay);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnTest);
-            this.Controls.Add(this.btnAddDelay);
             this.Controls.Add(this.lstLog);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -394,10 +430,13 @@
             this.grpAddPoint.PerformLayout();
             this.grpOptionSelectedItem.ResumeLayout(false);
             this.grpPattern.ResumeLayout(false);
+            this.grpPattern.PerformLayout();
             this.grpSelectedOrderOptions.ResumeLayout(false);
             this.grpOrder.ResumeLayout(false);
             this.grpName.ResumeLayout(false);
             this.grpName.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudInitalDelay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDelayBetween)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,12 +467,15 @@
         private System.Windows.Forms.GroupBox grpPattern;
         private System.Windows.Forms.ComboBox cmbOrder;
         private System.Windows.Forms.GroupBox grpOrder;
-        private System.Windows.Forms.Button btnAddKey;
         private System.Windows.Forms.Button btnEditOrder;
         private System.Windows.Forms.Button btnAddOrder;
         private System.Windows.Forms.CheckBox chkName;
         private System.Windows.Forms.GroupBox grpName;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.GroupBox grpSelectedOrderOptions;
+        private System.Windows.Forms.Label lblInitalDelay;
+        private System.Windows.Forms.Label lblDelayBetween;
+        private System.Windows.Forms.NumericUpDown nudDelayBetween;
+        private System.Windows.Forms.NumericUpDown nudInitalDelay;
     }
 }
