@@ -11,22 +11,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KeySimulatorGUI.Controller;
 using KeySimulatorGUI.Models;
+using KeySimulatorGUI.Properties;
 
 namespace KeySimulatorGUI.View
 {
-    public partial class MainEditor : Form
+    public class MainEditorForm : Form
     {
 
         private List<object> ListboxList;
         private readonly List<OrderModel> ComboboxList;
         private readonly bool _itsAboutPatern;
         private bool _recordStarted = false;
-        private readonly object _editObject;
 
+        
         /// <summary>
         /// If u want to create something new
         /// </summary>
-        public MainEditor(bool createNewPattern) : this(createNewPattern, null)
+        public MainEditorForm(bool createNewPattern) : this(true, createNewPattern, (T)new object())
         {
         }
 
@@ -34,9 +35,8 @@ namespace KeySimulatorGUI.View
         /// Edit the parameter Pattern
         /// </summary>
         /// <param name="p">The Pattern iObjects</param>
-        public MainEditor(PatternModel p) : this(true, p) 
+        public MainEditorForm(PatternModel p) : this(false, true, (T)(object)p) 
         {
-            _editObject = p;
         }
 
         /// <summary>
@@ -44,21 +44,21 @@ namespace KeySimulatorGUI.View
         /// </summary>
         /// <param name="p"></param>
         /// <param name="o"></param>
-        public MainEditor(OrderModel o) : this(false, o)
+        public MainEditorForm(OrderModel o) : this(false, false, (T)(object)o)
         {
         }
 
-        private MainEditor(bool itsAboutPattern, object obj)
+        private MainEditorForm(bool createNew, bool itsAboutPattern, T obj)
         {
             _itsAboutPatern = itsAboutPattern;
 
-            if (obj != null) _editObject = obj;
+            if (createNew) _editObject = obj;
             else
             {
                 if (_itsAboutPatern)
                 {
-                    _editObject = new PatternModel();
-     
+                    _editObject = (T)(object)new PatternModel();
+
                 }
                 else
                 {
@@ -168,6 +168,21 @@ namespace KeySimulatorGUI.View
             grpOptionSelectedItem.Enabled = true;
         }
 
+
+        private T GetListboxElement<T>()
+        {
+            return ListboxList.Cast<T>().ElementAt(lstLog.SelectedIndex);
+        }
+
+        private void cmbOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            grpSelectedOrderOptions.Enabled = true;
+        }
+
+
+        #region Option of Selected Item in lstLog
+
+
         private void btnEditSelectedItem_Click(object sender, EventArgs e)
         {
             Form form;
@@ -182,19 +197,15 @@ namespace KeySimulatorGUI.View
             form.Show();
         }
 
-        private T GetListboxElement<T>()
-        {
-            return ListboxList.Cast<T>().ElementAt(lstLog.SelectedIndex);
-        }
-
-        private void cmbOrder_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            grpSelectedOrderOptions.Enabled = true;
-        }
 
         private void btnMoveUp_Click(object sender, EventArgs e)
         {
             MoveSelectedItem(true);
+        }
+
+        private void btnMoveDown_Click(object sender, EventArgs e)
+        {
+            MoveSelectedItem(false);
         }
 
         private void MoveSelectedItem(bool moveUpwards)
@@ -207,40 +218,55 @@ namespace KeySimulatorGUI.View
             PopulateListbox();
         }
 
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region Option for edit Order
         private void btnRecord_Click(object sender, EventArgs e)
         {
             _recordStarted = !_recordStarted;
             btnRecord.Text = (_recordStarted) ? "Pause record" : "Start record";
         }
 
-        private void btnMoveDown_Click(object sender, EventArgs e)
-        {
-            MoveSelectedItem(false);
-        }
-   
+
+        #endregion
+
+
+
+
+
         private bool ParseKeyData(Keys keyData)
         {
             if (!_recordStarted) return false;
             KeyModel km = new KeyModel();
             km.Keycode = keyData;
-            keys.Add(km);
+            OrderModel orderModel = (OrderModel) _editObject;
+            orderModel.Keys.Add(km);
             UpdateLog();
             return true;
         }
 
         private List<KeyModel> keys = new List<KeyModel>();
 
-
-
         private void UpdateLog()
         {
             List<string> listOfKeys = new List<string>();
-            foreach (var key in keys)
+            foreach (var key in )
             {
                 listOfKeys.Add(key.Keycode.ToString());
             }
 
             lstLog.DataSource = listOfKeys;
         }
+
+        private void SyncListboxMembers()
+        {
+            
+        }
+
     }
 }

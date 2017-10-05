@@ -146,6 +146,7 @@
             this.btnRemove.TabIndex = 12;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnMoveDown
             // 
@@ -404,7 +405,7 @@
             this.lblInitalDelay.TabIndex = 39;
             this.lblInitalDelay.Text = "Inital Delay";
             // 
-            // MainEditor
+            // MainEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
