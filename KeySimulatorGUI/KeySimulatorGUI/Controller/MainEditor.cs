@@ -10,19 +10,35 @@ using KeySimulatorGUI.View;
 
 namespace KeySimulatorGUI.Controller
 {
-    class MainEditor<T> where T : new()
+    class MainEditor
     {
 
-        private readonly T _editObject;
+        private readonly dynamic _editObject;
 
-        public MainEditor() : this(new T())
+        public MainEditor(bool itsAboutAPattern) : this(null, itsAboutAPattern)
         {
             
         }
 
-        public MainEditor(T obj)
+        public MainEditor(object obj, bool itsAboutPattern)
         {
-            _editObject = obj;
+
+            if (obj != null)
+                _editObject = obj;
+            else
+            {
+                _editObject = (itsAboutPattern) ? new PatternModel() : new OrderModel();
+
+                if (itsAboutPattern)
+                {
+                    _editObject = new PatternModel();
+                }
+                else
+                {
+                    _editObject = new OrderModel();
+                }
+            }
+
         }
 
         //private List<object> ListboxList; //Probaly Useless
@@ -39,14 +55,12 @@ namespace KeySimulatorGUI.Controller
         {
             if (_itsAboutPatern)
             {
-                PatternModel p = _editObject as PatternModel;
-                if (p?.Orders != null && p.Orders.Any()) return p.Orders.Cast<T>().ToList();
+                if (_editObject?.Orders?.Any()) return _editObject?.Orders.Cast<T>().ToList();
             }
             else
             {
-            
-                OrderModel o = _editObject as OrderModel;
-                if (o?.Keys != null && o.Keys.Any()) return o.Keys.Cast<T>().ToList();
+           
+                if (_editObject?.Keys?.Any()) return _editObject?.Keys?.Cast<T>().ToList();
             }
 
             return new List<T>();
@@ -66,6 +80,5 @@ namespace KeySimulatorGUI.Controller
         {
 
         }
-
     }
 }
