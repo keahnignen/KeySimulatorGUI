@@ -19,13 +19,6 @@ namespace KeySimulatorGUI.Controller
             MainForm mainForm = new MainForm();
             Application.Run(mainForm);
             if (mainForm.ResultButton == null) return;
-            /*
-            Application.Run(
-                (mainForm.ResultButton.Name == mainForm.NameOfButtoNew)
-                ? (Form)new PatternEditor()
-                : (Form)new Patterns()
-                );
-                */
         }
         
     }

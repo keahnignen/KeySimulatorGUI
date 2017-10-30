@@ -13,7 +13,7 @@ namespace KeySimulatorGUI.Controller
         public int InitalDelay { get; set; }
         public int AdditonalBetweenDelay { get; set; }
         public string Title { get; set; }
-        public List<OrderModel> Orders { get; set; }
+        public List<Key> Orders { get; set; }
         public int PressDemension { get; set; }
     }
 }

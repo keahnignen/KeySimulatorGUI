@@ -11,7 +11,5 @@ namespace KeySimulatorGUI.Models
     class Context : DbContext
     {
         public DbSet<PatternModel> Patterns { get; set; }
-
-        public DbSet<OrderModel> Orders { get; set; }
     }
 }
