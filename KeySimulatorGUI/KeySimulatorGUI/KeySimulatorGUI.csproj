@@ -61,7 +61,7 @@
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
     <Compile Include="Controller\NamerController.cs" />
-    <Compile Include="Globals\Global.cs" />
+    <Compile Include="Globals\KeySimulater.cs" />
     <Compile Include="Migrations\201710301414308_Intial.cs" />
     <Compile Include="Migrations\201710301414308_Intial.Designer.cs">
       <DependentUpon>201710301414308_Intial.cs</DependentUpon>

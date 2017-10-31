@@ -7,7 +7,7 @@ using KeySimulatorGUI.Models;
 
 namespace KeySimulatorGUI.Controller
 {
-    public class PatternModel
+    public class PatternModel 
     {
         public int Id { get; set; }
         public string Title { get; set; }

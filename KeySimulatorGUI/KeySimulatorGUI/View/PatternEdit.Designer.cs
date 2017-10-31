@@ -116,6 +116,7 @@
             this.btnUse.TabIndex = 12;
             this.btnUse.Text = "Use";
             this.btnUse.UseVisualStyleBackColor = true;
+            this.btnUse.Click += new System.EventHandler(this.btnUse_Click);
             // 
             // btnReset
             // 
