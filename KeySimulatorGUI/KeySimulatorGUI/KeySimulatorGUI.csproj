@@ -53,41 +53,28 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
+      <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
-    <Compile Include="Controller\MainEditor.cs" />
-    <Compile Include="Migrations\201709290940325_InitialCreate.cs" />
-    <Compile Include="Migrations\201709290940325_InitialCreate.Designer.cs">
-      <DependentUpon>201709290940325_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710030957446_FirstMigration.cs" />
-    <Compile Include="Migrations\201710030957446_FirstMigration.Designer.cs">
-      <DependentUpon>201710030957446_FirstMigration.cs</DependentUpon>
+    <Compile Include="Controller\NamerController.cs" />
+    <Compile Include="Globals\Global.cs" />
+    <Compile Include="Migrations\201710301414308_Intial.cs" />
+    <Compile Include="Migrations\201710301414308_Intial.Designer.cs">
+      <DependentUpon>201710301414308_Intial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\ListboxItem.cs" />
     <Compile Include="Models\KeyModel.cs" />
-    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\PatternModel.cs" />
-    <Compile Include="View\UtilityWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\UtilityWindow.Designer.cs">
-      <DependentUpon>UtilityWindow.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\KeyEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\KeyEdit.Designer.cs">
       <DependentUpon>KeyEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\MainEditorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\MainEditorForm.Designer.cs">
-      <DependentUpon>MainEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -103,17 +90,17 @@
     <Compile Include="View\Namer.Designer.cs">
       <DependentUpon>Namer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\201709290940325_InitialCreate.resx">
-      <DependentUpon>201709290940325_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710030957446_FirstMigration.resx">
-      <DependentUpon>201710030957446_FirstMigration.cs</DependentUpon>
+    <Compile Include="View\PatternEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatternEdit.Designer.cs">
+      <DependentUpon>PatternEdit.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Migrations\201710301414308_Intial.resx">
+      <DependentUpon>201710301414308_Intial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\KeyEdit.resx">
       <DependentUpon>KeyEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MainEditorForm.resx">
-      <DependentUpon>MainEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -130,8 +117,8 @@
     <EmbeddedResource Include="View\Namer.resx">
       <DependentUpon>Namer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UtilityWindow.resx">
-      <DependentUpon>UtilityWindow.cs</DependentUpon>
+    <EmbeddedResource Include="View\PatternEdit.resx">
+      <DependentUpon>PatternEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -9,8 +9,7 @@ namespace KeySimulatorGUI.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "KeySimulatorGUI.Models.Context";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(KeySimulatorGUI.Models.Context context)

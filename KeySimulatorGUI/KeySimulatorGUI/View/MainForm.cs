@@ -96,7 +96,7 @@ namespace KeySimulatorGUI.View
         }
         private void CreateNewPattern()
         {
-            MainEditor me = new MainEditor(true);
+            PatternEdit me = new PatternEdit();
             me.Show();
         }
         private void btnDeletePattern_Click(object sender, EventArgs e)
@@ -139,7 +139,7 @@ namespace KeySimulatorGUI.View
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            MainEditor me = new MainEditor(GetSelectedPattern());
+            PatternEdit me = new PatternEdit(GetSelectedPattern());
             me.Show();
         }
 

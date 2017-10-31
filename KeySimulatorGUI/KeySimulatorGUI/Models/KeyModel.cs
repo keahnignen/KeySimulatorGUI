@@ -9,7 +9,7 @@ namespace KeySimulatorGUI.Models
 {
     public class KeyModel
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public Keys? Keycode { get; set; }
         public int Presstime { get; set; }
         public int Delay { get; set; }

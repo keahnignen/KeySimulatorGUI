@@ -7,23 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KeySimulatorGUI.Models;
+using KeySimulatorGUI.Controller;
+using KeySimulatorGUI.Globals;
 
 namespace KeySimulatorGUI.View
 {
-    public partial class KeyEdit : Form
+    public partial class Namer : Form
     {
-        private readonly KeyModel _keyModel;
-
-        public KeyEdit(KeyModel km)
+        public Namer()
         {
             InitializeComponent();
-            if (km.Keycode == null) 
-                _keyModel = km;
         }
 
-        private void btnChangeKey_Click(object sender, EventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        public string GetName()
+        {
+            return tbxName.Text;
         }
     }
 }

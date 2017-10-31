@@ -12,14 +12,11 @@ namespace KeySimulatorGUI.Controller
 {
     class MainController
     {
-
-       
         public MainController()
         {
             MainForm mainForm = new MainForm();
             Application.Run(mainForm);
             if (mainForm.ResultButton == null) return;
-        }
-        
+        }   
     }
 }
