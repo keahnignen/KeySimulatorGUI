@@ -14,11 +14,11 @@ namespace KeySimulatorGUI.Globals
     public class KeySimulater
     {
 
-        private readonly List<KeyModel>.Enumerator keys;
+        private readonly PatternModel keys;
 
-        public KeySimulater(List<KeyModel>.Enumerator lkme)
+        public KeySimulater(PatternModel p)
         {
-            keys = lkme;
+            keys = p;
         }
 
         private readonly InputSimulator _inputSimulatorField = new InputSimulator();
@@ -35,9 +35,16 @@ namespace KeySimulatorGUI.Globals
             IsTerminate = false;
             while (!IsTerminate)
             {
-                if (keys.Current?.Keycode != null) PressKey((VirtualKeyCode) keys.Current.Keycode);
+                if (keys.Current?.KeyCodeNormal == null) continue;
+                if (keys.Current?.KeycodeModifier != null)
+                {
+                    _inputSimulatorField.Keyboard.ModifiedKeyStroke(keys.Current.KeycodeModifier, keys.Current.KeyCodeNormal);
+                }
+                else
+                {
+                    _inputSimulatorField.Keyboard.KeyDown((VirtualKeyCode)keys.Current.KeyCodeNormal.First());
+                }
             }
-
         }
     }
 }

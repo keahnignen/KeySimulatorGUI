@@ -1,11 +1,16 @@
-Microsoft Visual Studio Solution File, Format Version 8.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleHookingApp", "SampleHookingApp\SampleHookingApp.csproj", "{104E5612-CF7C-4F1F-B98F-04446E42280A}"
-	ProjectSection(ProjectDependencies) = postProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F0DCF16F-C319-444E-97D0-1428BB2CD3F2}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Managed Hooks.chm = Documentation\Managed Hooks.chm
+		Documentation\ManagedHooks.ndoc = Documentation\ManagedHooks.ndoc
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SystemHookCore", "SystemHookCore\SystemHookCore.vcproj", "{A558485A-58F7-4748-A0BE-EE1BB01732F5}"
-	ProjectSection(ProjectDependencies) = postProject
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleHookingApp", "SampleHookingApp\SampleHookingApp.csproj", "{104E5612-CF7C-4F1F-B98F-04446E42280A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SystemHookCore", "SystemHookCore\SystemHookCore.vcxproj", "{A558485A-58F7-4748-A0BE-EE1BB01732F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedHooks", "ManagedHooks\ManagedHooks.csproj", "{C88B254C-9091-4D14-B8CE-8A79135E9DA0}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -18,43 +23,41 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedHooksTests", "Manage
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(SolutionConfiguration) = preSolution
-		Debug = Debug
-		Documentation = Documentation
-		Release = Release
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Documentation|Default = Documentation|Default
+		Release|Default = Release|Default
 	EndGlobalSection
-	GlobalSection(ProjectConfiguration) = postSolution
-		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Debug.ActiveCfg = Debug|Win32
-		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Debug.Build.0 = Debug|Win32
-		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Documentation.ActiveCfg = Documentation|Win32
-		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Documentation.Build.0 = Documentation|Win32
-		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Release.ActiveCfg = Release|Win32
-		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Release.Build.0 = Release|Win32
-		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Debug.ActiveCfg = Debug|.NET
-		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Debug.Build.0 = Debug|.NET
-		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Documentation.ActiveCfg = Documentation|.NET
-		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Documentation.Build.0 = Documentation|.NET
-		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Release.ActiveCfg = Release|.NET
-		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Release.Build.0 = Release|.NET
-		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Debug.ActiveCfg = Debug|.NET
-		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Debug.Build.0 = Debug|.NET
-		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Documentation.ActiveCfg = Documentation|.NET
-		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Documentation.Build.0 = Documentation|.NET
-		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Release.ActiveCfg = Release|.NET
-		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Release.Build.0 = Release|.NET
-		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Debug.ActiveCfg = Debug|.NET
-		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Debug.Build.0 = Debug|.NET
-		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Documentation.ActiveCfg = Debug|.NET
-		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Documentation.Build.0 = Debug|.NET
-		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Release.ActiveCfg = Release|.NET
-		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Release.Build.0 = Release|.NET
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Debug|Default.ActiveCfg = Debug|Any CPU
+		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Debug|Default.Build.0 = Debug|Any CPU
+		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Documentation|Default.ActiveCfg = Documentation|Any CPU
+		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Documentation|Default.Build.0 = Documentation|Any CPU
+		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Release|Default.ActiveCfg = Release|Any CPU
+		{104E5612-CF7C-4F1F-B98F-04446E42280A}.Release|Default.Build.0 = Release|Any CPU
+		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Debug|Default.ActiveCfg = Debug|Win32
+		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Debug|Default.Build.0 = Debug|Win32
+		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Documentation|Default.ActiveCfg = Documentation|Win32
+		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Documentation|Default.Build.0 = Documentation|Win32
+		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Release|Default.ActiveCfg = Release|Win32
+		{A558485A-58F7-4748-A0BE-EE1BB01732F5}.Release|Default.Build.0 = Release|Win32
+		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Debug|Default.ActiveCfg = Debug|Any CPU
+		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Debug|Default.Build.0 = Debug|Any CPU
+		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Documentation|Default.ActiveCfg = Documentation|Any CPU
+		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Documentation|Default.Build.0 = Documentation|Any CPU
+		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Release|Default.ActiveCfg = Release|Any CPU
+		{C88B254C-9091-4D14-B8CE-8A79135E9DA0}.Release|Default.Build.0 = Release|Any CPU
+		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Debug|Default.ActiveCfg = Debug|Any CPU
+		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Debug|Default.Build.0 = Debug|Any CPU
+		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Documentation|Default.ActiveCfg = Debug|Any CPU
+		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Documentation|Default.Build.0 = Debug|Any CPU
+		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Release|Default.ActiveCfg = Release|Any CPU
+		{27FD5E11-213D-46AD-9BB8-A4B01652548C}.Release|Default.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionItems) = postSolution
-		Documentation\Managed Hooks.chm = Documentation\Managed Hooks.chm
-		Documentation\ManagedHooks.ndoc = Documentation\ManagedHooks.ndoc
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-	EndGlobalSection
-	GlobalSection(ExtensibilityAddIns) = postSolution
+		SolutionGuid = {DEFCEC16-6AFF-46D2-8962-B8539D7EF40E}
 	EndGlobalSection
 EndGlobal

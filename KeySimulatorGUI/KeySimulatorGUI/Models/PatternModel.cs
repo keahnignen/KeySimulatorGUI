@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsInput.Native;
 using KeySimulatorGUI.Models;
 
 namespace KeySimulatorGUI.Controller
@@ -12,6 +13,6 @@ namespace KeySimulatorGUI.Controller
         public int Id { get; set; }
         public string Title { get; set; }
         public int InitalDelay { get; set; }
-        public List<KeyModel> Keys { get; set; }
+        public Dictionary<string, IEnumerable<VirtualKeyCode>[]>  Keys { get; set; }
     }
 }

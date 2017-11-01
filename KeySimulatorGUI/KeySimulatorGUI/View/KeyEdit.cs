@@ -18,7 +18,7 @@ namespace KeySimulatorGUI.View
         public KeyEdit(KeyModel km)
         {
             InitializeComponent();
-            if (km.Keycode == null) 
+            if (km.KeyCodeNormal != null && km.KeycodeModifier != null) 
                 _keyModel = km;
         }
 

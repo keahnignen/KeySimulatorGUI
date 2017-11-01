@@ -61,13 +61,18 @@
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
     <Compile Include="Controller\NamerController.cs" />
-    <Compile Include="Globals\KeySimulater.cs" />
-    <Compile Include="Migrations\201710301414308_Intial.cs" />
-    <Compile Include="Migrations\201710301414308_Intial.Designer.cs">
-      <DependentUpon>201710301414308_Intial.cs</DependentUpon>
+    <Compile Include="Controller\KeySimulater.cs" />
+    <Compile Include="Migrations\201711011220489_FirstMigration.cs" />
+    <Compile Include="Migrations\201711011220489_FirstMigration.Designer.cs">
+      <DependentUpon>201711011220489_FirstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\KeyModel.cs" />
+    <Compile Include="View\KeyStrokes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\KeyStrokes.Designer.cs">
+      <DependentUpon>KeyStrokes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\PatternModel.cs" />
     <Compile Include="View\KeyEdit.cs">
@@ -96,8 +101,11 @@
     <Compile Include="View\PatternEdit.Designer.cs">
       <DependentUpon>PatternEdit.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\201710301414308_Intial.resx">
-      <DependentUpon>201710301414308_Intial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711011220489_FirstMigration.resx">
+      <DependentUpon>201711011220489_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\KeyStrokes.resx">
+      <DependentUpon>KeyStrokes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\KeyEdit.resx">
       <DependentUpon>KeyEdit.cs</DependentUpon>
@@ -138,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="Globals\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

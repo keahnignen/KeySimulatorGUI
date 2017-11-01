@@ -2,19 +2,35 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
+using WindowsInput.Native;
 using KeySimulatorGUI.Controller;
 using KeySimulatorGUI.Globals;
+using KeySimulatorGUI.Models;
 
 namespace KeySimulatorGUI.View
 {
     public partial class PatternEdit : Form
     {
+        private static readonly int WM_SYSKEYDOWN = 0x0104;
+        private static readonly int WM_KEYDOWN = 0x0100;
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if ((msg.Msg == WM_KEYDOWN) || (msg.Msg == WM_SYSKEYDOWN))
+            {
+                if (!recordKeyInput) return base.ProcessCmdKey(ref msg, keyData);
+                SaveKey(keyData);
+            }
+            return true;
+        }
 
         private readonly PatternModel _patternModelOriginal;
 
@@ -22,8 +38,12 @@ namespace KeySimulatorGUI.View
         private Thread t;
 
         private bool threadIsRuning = false;
+        private bool recordKeyInput = false;
 
         private readonly PatternModel _patternModel;
+
+
+
 
         public PatternEdit(PatternModel p)
         {
@@ -33,11 +53,25 @@ namespace KeySimulatorGUI.View
             if (_patternModel.Title == null)
                 RenamePattern();
             RefreshName();
+            btnRecord_Rename();
         }
 
         public PatternEdit() : this(new PatternModel())
-        {
+        { 
+        }
 
+        private Dictionary<string, List<Keys>> kkkk = new Dictionary<string, List<Keys>>();
+        private List<Keys> tempList = new List<Keys>();
+        private int Devider = 100;
+        private Stopwatch sp = new Stopwatch();
+
+        private void SaveKey(Keys k)
+        {
+                
+        }
+
+        private void SaveKeyStroke(IEnumerable<VirtualKeyCode> k, IEnumerable<VirtualKeyCode> i)
+        {
         }
 
         private void RefreshName()
@@ -90,7 +124,7 @@ namespace KeySimulatorGUI.View
             }
             else
             {
-                g = new KeySimulater(_patternModel.Keys.GetEnumerator());
+                g = new KeySimulater(_patternModel);
                 t = new Thread(g.PressKey);
                 t.Start();
             }
@@ -101,6 +135,19 @@ namespace KeySimulatorGUI.View
             PressButton();
             threadIsRuning = !threadIsRuning;
             RefreshbtnUse();
+        }
+
+        private void btnRecord_Click(object sender, EventArgs e)
+        {
+            recordKeyInput = !recordKeyInput;
+            btnRecord_Rename();
+            sp.Start();
+
+        }
+
+        private void btnRecord_Rename()
+        {
+            btnRecord.Text = (recordKeyInput) ? "Stop" : "Record";
         }
     }
 }
